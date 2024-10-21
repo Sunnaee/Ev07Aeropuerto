@@ -2,9 +2,8 @@ public class Piloto {
 	private String nombrePiloto;
 	private Vuelo vuelo;
 
-	public Piloto(String nombrePiloto, Vuelo vuelo) {
+	public Piloto(String nombrePiloto) {
 		this.nombrePiloto = nombrePiloto;
-		this.vuelo = vuelo;
 	}
 
 	public String getNombrePiloto() {

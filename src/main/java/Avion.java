@@ -24,8 +24,10 @@ public class Avion {
 
 	public Vuelo buscarVuelo(String nombreVuelo) {
 		for (Vuelo vuelo : this.vuelos){
-			if(Objects.equals(vuelo.getNombreVuelo(), nombreVuelo)){
-				return vuelo;
+			if (vuelo.getNombreVuelo() != null) {
+				if (Objects.equals(vuelo.getNombreVuelo(), nombreVuelo)) {
+					return vuelo;
+				}
 			}
 		}
 		return null;
@@ -33,11 +35,9 @@ public class Avion {
 
 	public boolean agregarVuelo(Vuelo vuelo) {
 		for (Vuelo vueloEnLista : this.vuelos){
-			if(buscarVuelo(vueloEnLista.getNombreVuelo()) != null){
-				if (buscarVuelo(vueloEnLista.getNombreVuelo()) != vuelo){
-					this.vuelos.add(vuelo);
-					return true;
-				}
+			if (buscarVuelo(vueloEnLista.getNombreVuelo()) != vuelo){
+				this.vuelos.add(vuelo);
+				return true;
 			}
 		}
 		return false;
