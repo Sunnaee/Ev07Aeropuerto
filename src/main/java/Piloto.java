@@ -3,7 +3,8 @@ public class Piloto {
 	private Vuelo vuelo;
 
 	public Piloto(String nombrePiloto, Vuelo vuelo) {
-		throw new UnsupportedOperationException();
+		this.nombrePiloto = nombrePiloto;
+		this.vuelo = vuelo;
 	}
 
 	public String getNombrePiloto() {

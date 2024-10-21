@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Vuelo {
 	private String nombreVuelo;
@@ -11,7 +12,13 @@ public class Vuelo {
 	private ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
 
 	public Vuelo(String nombreVuelo, String ciudadOrigen, String ciudadDestino, Date fechaInicio, Date fechaDestino, ArrayList<Piloto> pilotos, ArrayList<Pasajero> pasajeros) {
-		throw new UnsupportedOperationException();
+		this.nombreVuelo = nombreVuelo;
+		this.ciudadOrigen = ciudadOrigen;
+		this.ciudadDestino = ciudadDestino;
+		this.fechaInicio = fechaInicio;
+		this.fechaDestino = fechaDestino;
+		this.pilotos = pilotos;
+		this.pasajeros = pasajeros;
 	}
 
 	public String getNombreVuelo() {
@@ -54,19 +61,53 @@ public class Vuelo {
 		this.fechaDestino = fechaDestino;
 	}
 
+	public ArrayList<Piloto> obtenerPilotos() {
+		return this.pilotos;
+	}
+
+	public ArrayList<Pasajero> obtenerPasajeros() {
+		return this.pasajeros;
+	}
+
 	public Pasajero buscarPasajero(String nombrePasajero) {
-		throw new UnsupportedOperationException();
+		for (Pasajero pasajero : this.pasajeros){
+			if(Objects.equals(pasajero.getNombre(), nombrePasajero)){
+				return pasajero;
+			}
+		}
+		return null;
 	}
 
 	public boolean agregarPasajero(Pasajero pasajero) {
-		throw new UnsupportedOperationException();
+		for (Pasajero pasajeroEnLista : this.pasajeros){
+			if(buscarPasajero(pasajeroEnLista.getNombre()) != null){
+				if (buscarPasajero(pasajeroEnLista.getNombre()) != pasajero){
+					this.pasajeros.add(pasajero);
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public Piloto buscarPiloto(String nombrePiloto) {
-		throw new UnsupportedOperationException();
+		for (Piloto piloto : this.pilotos){
+			if(Objects.equals(piloto.getNombrePiloto(), nombrePiloto)){
+				return piloto;
+			}
+		}
+		return null;
 	}
 
 	public boolean agregarPiloto(Piloto piloto) {
-		throw new UnsupportedOperationException();
+		for (Piloto pilotoEnLista : this.pilotos){
+			if(buscarPiloto(pilotoEnLista.getNombrePiloto()) != null){
+				if (buscarPiloto(pilotoEnLista.getNombrePiloto()) != piloto){
+					this.pilotos.add(piloto);
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

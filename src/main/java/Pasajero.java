@@ -3,7 +3,8 @@ public class Pasajero {
 	private Pasaporte pasaporte;
 
 	public Pasajero(String nombre, Pasaporte pasaporte) {
-		throw new UnsupportedOperationException();
+		this.nombre = nombre;
+		this.pasaporte = pasaporte;
 	}
 
 	public String getNombre() {
@@ -15,6 +16,10 @@ public class Pasajero {
 	}
 
 	public Pasaporte obtenerPasaporte() {
-		throw new UnsupportedOperationException();
+		return this.pasaporte;
+	}
+
+	public String mostrarNombre(){
+		return "Pasajero/a: "+this.nombre;
 	}
 }

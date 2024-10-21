@@ -7,7 +7,10 @@ public class Pasaporte {
 	private Date fechaExpiracion;
 
 	public Pasaporte(String id, String nacionalidad, int hojasDisponibles, Date fechaExpiracion) {
-		throw new UnsupportedOperationException();
+		this.id = id;
+		this.nacionalidad = nacionalidad;
+		this.hojasDisponibles = hojasDisponibles;
+		this.fechaExpiracion = fechaExpiracion;
 	}
 
 	public String getId() {
@@ -40,9 +43,5 @@ public class Pasaporte {
 
 	public void setFechaExpiracion(Date fechaExpiracion) {
 		this.fechaExpiracion = fechaExpiracion;
-	}
-
-	public String mostrarId() {
-		throw new UnsupportedOperationException();
 	}
 }
