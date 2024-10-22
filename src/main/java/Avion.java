@@ -35,11 +35,11 @@ public class Avion {
 
 	public boolean agregarVuelo(Vuelo vuelo) {
 		for (Vuelo vueloEnLista : this.vuelos){
-			if (buscarVuelo(vueloEnLista.getNombreVuelo()) != vuelo){
-				this.vuelos.add(vuelo);
-				return true;
+			if (buscarVuelo(vueloEnLista.getNombreVuelo()) == vuelo){
+				return false;
 			}
 		}
-		return false;
+		this.vuelos.add(vuelo);
+		return true;
 	}
 }

@@ -1,4 +1,6 @@
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -24,12 +26,12 @@ public class Aeropuerto {
 	//buscar el avión que se quiere registrar con la función anterior para comprobar si existe o no.
 	public boolean registrarAvion(Avion avion) {
 		for (Avion avionEnLista : this.aviones){
-			if (buscarAvion(avionEnLista.getNombreAvion()) != avion){ //si el avión encontrado no es el mismo al avión que se quiere agregar.
-				this.aviones.add(avion);
-				return true;
+			if (buscarAvion(avionEnLista.getNombreAvion()) == avion){ //si el avión ya existe.
+				return false;
 			}
 		}
-		return false;
+		this.aviones.add(avion);
+		return true;
 	}
 
 	//crear un vuelo.

@@ -71,8 +71,10 @@ public class Vuelo {
 
 	public Pasajero buscarPasajero(String nombrePasajero) {
 		for (Pasajero pasajero : this.pasajeros){
-			if(Objects.equals(pasajero.getNombre(), nombrePasajero)){
-				return pasajero;
+			if (pasajero.getNombre() != null) {
+				if (Objects.equals(pasajero.getNombre(), nombrePasajero)) {
+					return pasajero;
+				}
 			}
 		}
 		return null;
@@ -80,20 +82,20 @@ public class Vuelo {
 
 	public boolean agregarPasajero(Pasajero pasajero) {
 		for (Pasajero pasajeroEnLista : this.pasajeros){
-			if(buscarPasajero(pasajeroEnLista.getNombre()) != null){
-				if (buscarPasajero(pasajeroEnLista.getNombre()) != pasajero){
-					this.pasajeros.add(pasajero);
-					return true;
-				}
+			if (buscarPasajero(pasajeroEnLista.getNombre()) == pasajero){
+				return false;
 			}
 		}
-		return false;
+		this.pasajeros.add(pasajero);
+		return true;
 	}
 
 	public Piloto buscarPiloto(String nombrePiloto) {
 		for (Piloto piloto : this.pilotos){
-			if(Objects.equals(piloto.getNombrePiloto(), nombrePiloto)){
-				return piloto;
+			if (piloto.getNombrePiloto() != null) {
+				if (Objects.equals(piloto.getNombrePiloto(), nombrePiloto)) {
+					return piloto;
+				}
 			}
 		}
 		return null;
@@ -101,13 +103,11 @@ public class Vuelo {
 
 	public boolean agregarPiloto(Piloto piloto) {
 		for (Piloto pilotoEnLista : this.pilotos){
-			if(buscarPiloto(pilotoEnLista.getNombrePiloto()) != null){
-				if (buscarPiloto(pilotoEnLista.getNombrePiloto()) != piloto){
-					this.pilotos.add(piloto);
-					return true;
-				}
-			}
+			if (buscarPiloto(pilotoEnLista.getNombrePiloto()) == piloto){
+				return false;
+            }
 		}
-		return false;
+		this.pilotos.add(piloto);
+		return true;
 	}
 }
